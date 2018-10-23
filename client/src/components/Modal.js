@@ -40,26 +40,13 @@ class Modal extends Component {
     }
   ];
 
-  // searchGames = () => {
-  //   let toSearch = this.props.game;
-  //   for (let i = 0; i < this.games.length; i++) {
-  //     for (let key in this.games[i]) {
-  //       console.log("first key test", key);
-  //       if (key === toSearch) {
-  //         console.log("key test", key);
-  //         this.setState({ gameInfo: Object.values(this.games[i][key]) });
-  //       }
-  //     }
-  //   }
-  // };
-
   searchGames = gameSearch => {
     return gameSearch.name === this.props.game;
   };
 
   returnGame = () => {
-    this.games.find(this.searchGames);
-    return <div>{this.games.rules}</div>;
+    const found = this.games.find(this.searchGames);
+    return found.rules;
   };
 
   render() {
@@ -67,8 +54,7 @@ class Modal extends Component {
       return (
         <div>
           <p>{this.props.game}</p>
-          {console.log("this.props.game", this.props.game)}
-          {console.log("gameInfo", this.games.find(this.searchGames))}
+          <div>{this.returnGame()}</div>
         </div>
       );
     } else return null;
