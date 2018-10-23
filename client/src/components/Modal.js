@@ -52,7 +52,10 @@ class Modal extends Component {
   render() {
     if (this.props.isOpen) {
       return (
-        <div>
+        <div className="modal-rules">
+          <span className="exit" onClick={this.props.toggleModal}>
+            &times;
+          </span>
           <p>{this.props.game}</p>
           <div>{this.returnGame()}</div>
         </div>
