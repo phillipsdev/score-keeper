@@ -6,6 +6,11 @@ import Spades from "./components/Spades";
 
 import "./App.css";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faInfoCircle);
+
 class App extends Component {
   render() {
     return (
