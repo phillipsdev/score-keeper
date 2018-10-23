@@ -3,6 +3,7 @@ import { Route, NavLink } from "react-router-dom";
 
 import Home from "./components/Home";
 import Spades from "./components/Spades";
+import Hearts from "./components/Hearts";
 
 import "./App.css";
 
@@ -26,9 +27,15 @@ class App extends Component {
               Spades
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/hearts" activeClassName="activeNavButton">
+              Hearts
+            </NavLink>
+          </li>
         </ul>
         <Route exact path="/" component={Home} />
-        <Route exact path="/spades" render={props => <Spades />} />
+        <Route exact path="/spades" component={Spades} />
+        <Route exact path="/hearts" component={Hearts} />
       </div>
     );
   }
