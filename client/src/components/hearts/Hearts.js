@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Modal from "./Modal";
+import Modal from "../Modal";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-class Spades extends Component {
+class Hearts extends Component {
   state = {
     modal: false
   };
@@ -15,14 +15,14 @@ class Spades extends Component {
   render() {
     return (
       <div className="game-header">
-        <h1>Spades</h1>
+        <h1>Hearts</h1>
         <FontAwesomeIcon
           icon="info-circle"
           className="info-icon"
           onClick={this.toggleModal}
         />
         <Modal
-          game="spades"
+          game="hearts"
           isOpen={this.state.modal}
           toggleModal={this.toggleModal}
         />
@@ -31,4 +31,4 @@ class Spades extends Component {
   }
 }
 
-export default Spades;
+export default Hearts;

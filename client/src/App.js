@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Route, NavLink } from "react-router-dom";
 
 import Home from "./components/Home";
-import Spades from "./components/Spades";
-import Hearts from "./components/Hearts";
+import Spades from "./components/spades/Spades";
+import Hearts from "./components/hearts/Hearts";
 
 import "./App.css";
 
