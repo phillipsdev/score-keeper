@@ -54,13 +54,15 @@ class Modal extends Component {
   };
 
   render() {
+    const game_name = this.props.game.replace(/[_]/g, " ");
+
     if (this.props.isOpen) {
       return (
         <div className="modal-rules">
           <span className="exit" onClick={this.props.toggleModal}>
             &times;
           </span>
-          <p>{this.props.game.toUpperCase()}</p>
+          <p>{game_name.toUpperCase()}</p>
           <div>{this.returnGame()}</div>
         </div>
       );
