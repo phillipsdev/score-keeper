@@ -7,14 +7,6 @@ class Modal extends Component {
 
   games = [
     {
-      name: "spades",
-      rules: "Spades rules"
-    },
-    {
-      name: "canasta",
-      rules: "Canasta rules"
-    },
-    {
       name: "canadian_bacon",
       rules: "Canadian Bacon rules"
     },
@@ -23,8 +15,8 @@ class Modal extends Component {
       rules: "Canadian Salad rules"
     },
     {
-      name: "hearts",
-      rules: "Hearts rules"
+      name: "canasta",
+      rules: "Canasta rules"
     },
     {
       name: "domino_train",
@@ -37,6 +29,14 @@ class Modal extends Component {
     {
       name: "twisted_farkle",
       rules: "Twisted Farkle rules"
+    },
+    {
+      name: "hearts",
+      rules: "Hearts rules"
+    },
+    {
+      name: "spades",
+      rules: "Spades rules"
     },
     {
       name: "yahtzee",
