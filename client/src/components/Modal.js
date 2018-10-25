@@ -16,7 +16,11 @@ class Modal extends Component {
     },
     {
       name: "canadian_bacon",
-      rules: "Canadian bacon rules"
+      rules: "Canadian Bacon rules"
+    },
+    {
+      name: "canadian_salad",
+      rules: "Canadian Salad rules"
     },
     {
       name: "hearts",
@@ -24,7 +28,7 @@ class Modal extends Component {
     },
     {
       name: "domino_train",
-      rules: "Domino train rules"
+      rules: "Domino Train rules"
     },
     {
       name: "farkle",
@@ -56,7 +60,7 @@ class Modal extends Component {
           <span className="exit" onClick={this.props.toggleModal}>
             &times;
           </span>
-          <p>{this.props.game}</p>
+          <p>{this.props.game.toUpperCase()}</p>
           <div>{this.returnGame()}</div>
         </div>
       );
