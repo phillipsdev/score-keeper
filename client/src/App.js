@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, NavLink } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import Home from "./components/Home";
 import Canasta from "./components/canasta/Canasta";
@@ -11,6 +11,7 @@ import Twisted_Farkle from "./components/twisted_farkle/Twisted_Farkle";
 import Hearts from "./components/hearts/Hearts";
 import Spades from "./components/spades/Spades";
 import Yahtzee from "./components/yahtzee/Yahtzee";
+import Menu from "./components/Menu";
 
 import "./App.css";
 
@@ -32,61 +33,12 @@ class App extends Component {
     return (
       <div className="App">
         <header className="header">
-          <div className="menu-item" onClick={this.showMenu}>
-            Menu
-          </div>
-          <ul className="navbar">
-            <li>
-              <NavLink exact to="/" activeClassName="activeNavButton">
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/canadian_bacon" activeClassName="activeNavButton">
-                Canadian Bacon
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/canadian_salad" activeClassName="activeNavButton">
-                Canadian Salad
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/canasta" activeClassName="activeNavButton">
-                Canasta
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/domino_train" activeClassName="activeNavButton">
-                Domino Train
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/farkle" activeClassName="activeNavButton">
-                Farkle
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/twisted_farkle" activeClassName="activeNavButton">
-                Twisted Farkle
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/hearts" activeClassName="activeNavButton">
-                Hearts
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/spades" activeClassName="activeNavButton">
-                Spades
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/yahtzee" activeClassName="activeNavButton">
-                Yahtzee
-              </NavLink>
-            </li>
-          </ul>
+          <Menu onClick={this.showMenu} isOpen={this.state.menu} />
+          {!this.state.menu ? (
+            <div className="menu-item" onClick={this.showMenu}>
+              Menu
+            </div>
+          ) : null}
         </header>
         <Route exact path="/" component={Home} />
         <Route exact path="/canadian_bacon" component={Canadian_Bacon} />
