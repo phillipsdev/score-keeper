@@ -7,7 +7,6 @@ class Menu extends Component {
       return (
         <div>
           <ul className="navbar">
-            <li onClick={this.props.onClick}>Close</li>
             <li>
               <NavLink exact to="/" activeClassName="activeNavButton">
                 Home

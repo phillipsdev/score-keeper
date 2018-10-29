@@ -44,21 +44,32 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  align-content: flex-start;
   align-items: center;
+  background: #e2fcef;
+  width: 200px;
+  padding: 0;
+  margin: 3px 0 0 0;
 }
 
 .navbar > li {
-  color: #3c6e71;
+  width: 100px;
   padding: 24px;
   height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar > li:hover {
+  cursor: pointer;
+  background-color: #565656;
 }
 
 .navbar > li > a {
   text-decoration: none;
+  color: #3c6e71;
 }
 
 .navbar > li > .activeNavButton {
-  background-color: #3c6e71;
   color: white;
 }

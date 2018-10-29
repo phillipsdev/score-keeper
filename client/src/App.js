@@ -33,12 +33,16 @@ class App extends Component {
     return (
       <div className="App">
         <header className="header">
-          <Menu onClick={this.showMenu} isOpen={this.state.menu} />
           {!this.state.menu ? (
             <div className="menu-item" onClick={this.showMenu}>
               Menu
             </div>
-          ) : null}
+          ) : (
+            <div className="menu-item" onClick={this.showMenu}>
+              Close
+            </div>
+          )}
+          <Menu onClick={this.showMenu} isOpen={this.state.menu} />
         </header>
         <Route exact path="/" component={Home} />
         <Route exact path="/canadian_bacon" component={Canadian_Bacon} />
