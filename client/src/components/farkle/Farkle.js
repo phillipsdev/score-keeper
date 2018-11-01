@@ -8,7 +8,7 @@ class Farkle extends Component {
   state = {
     modal: false,
     cards: false,
-    value: ""
+    value: "2"
   };
 
   toggleModal = () => {
@@ -25,13 +25,12 @@ class Farkle extends Component {
   };
 
   handleChange = event => {
+    event.preventDefault();
     this.setState({ value: event.target.value });
   };
 
   showPlayerCards = () => {
     let value = parseInt(this.state.value);
-    console.log(this.state.value);
-    console.log(value);
     let rows = [];
     for (let i = 0; i < value; i++) {
       rows.push(<PlayerCard key={i} />);
@@ -59,8 +58,7 @@ class Farkle extends Component {
           <div className="player_count_form">
             <h3>How many players?</h3>
             <form>
-              <select onChange={this.handleChange}>
-                <option value="1">1</option>
+              <select value={this.state.value} onChange={this.handleChange}>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -75,7 +73,10 @@ class Farkle extends Component {
             </form>
           </div>
         ) : (
-          <div>{this.showPlayerCards()}</div>
+          <div>
+            <button onClick={this.toggleCards}>Back</button>
+            {this.showPlayerCards()}
+          </div>
         )}
       </div>
     );
