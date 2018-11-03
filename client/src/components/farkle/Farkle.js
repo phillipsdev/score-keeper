@@ -75,7 +75,7 @@ class Farkle extends Component {
         ) : (
           <div>
             <button onClick={this.toggleCards}>Back</button>
-            {this.showPlayerCards()}
+            <div className="show_cards">{this.showPlayerCards()}</div>
           </div>
         )}
       </div>
