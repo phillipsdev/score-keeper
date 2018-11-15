@@ -1,14 +1,16 @@
-import React, { Component } from "react";
-import Modal from "../Modal";
+import React, { Component } from 'react';
+import Modal from '../Modal';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import PlayerCard from "../PlayerCard";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PlayerCard from '../PlayerCard';
 
 class Farkle extends Component {
   state = {
     modal: false,
     cards: false,
-    value: "2"
+    value: '2',
+    roll: '0',
+    previousScore: '0'
   };
 
   toggleModal = () => {
@@ -26,16 +28,30 @@ class Farkle extends Component {
 
   handleChange = event => {
     event.preventDefault();
-    this.setState({ value: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   showPlayerCards = () => {
     let value = parseInt(this.state.value);
     let rows = [];
     for (let i = 0; i < value; i++) {
-      rows.push(<PlayerCard key={i} />);
+      rows.push(
+        <PlayerCard
+          key={i}
+          handleChange={this.handleChange}
+          roll={this.state.roll}
+          calculateScore={this.calculateScore}
+        />
+      );
     }
     return rows;
+  };
+
+  calculateScore = roll => {
+    const newScore = parseInt(this.state.previousScore) + parseInt(roll);
+    console.log('new score', newScore);
+    this.setState({ previousScore: newScore });
+    return newScore;
   };
 
   render() {
@@ -58,7 +74,11 @@ class Farkle extends Component {
           <div className="player_count_form">
             <h3>How many players?</h3>
             <form>
-              <select value={this.state.value} onChange={this.handleChange}>
+              <select
+                name="value"
+                value={this.state.value}
+                onChange={this.handleChange}
+              >
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
