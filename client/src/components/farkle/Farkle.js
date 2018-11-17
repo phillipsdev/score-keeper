@@ -38,9 +38,11 @@ class Farkle extends Component {
       rows.push(
         <PlayerCard
           key={i}
+          index={i}
           handleChange={this.handleChange}
           roll={this.state.roll}
           calculateScore={this.calculateScore}
+          score={this.state.previousScore}
         />
       );
     }
@@ -50,8 +52,7 @@ class Farkle extends Component {
   calculateScore = roll => {
     const newScore = parseInt(this.state.previousScore) + parseInt(roll);
     console.log('new score', newScore);
-    this.setState({ previousScore: newScore });
-    return newScore;
+    this.setState({ previousScore: newScore.toString() });
   };
 
   render() {
